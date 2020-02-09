@@ -1,0 +1,19 @@
+{
+  "name": "com.athanor.athanor_utils",
+  "version": "1.1.3",
+  "displayName": "Athanor Utils",
+  "description": "This package contains all code shared among all my projects.",
+  "unity": "2019.3",
+  "unityRelease": "0f6",
+  "keywords": [
+    "athanor",
+    "core",
+    "utils"
+  ],
+  "author": {
+    "name": "Grzegorz Palian",
+    "email": "grzegorz.palian@gmail.com"
+  },
+  "type": "library",
+  "hideInEditor": false
+}
