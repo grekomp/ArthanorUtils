@@ -16,6 +16,7 @@ namespace ScriptableSystems
 	{
 		public ScriptableSystemCollection currentSystemsCollection;
 
+		#region Singleton
 		protected static ScriptableSystemsManager _instance;
 		public static ScriptableSystemsManager Instance {
 			get {
@@ -24,6 +25,27 @@ namespace ScriptableSystems
 				return _instance;
 			}
 		}
+
+		private static ScriptableSystemsManager CreateNewInstance()
+		{
+			ScriptableObject newObject = CreateInstance<ScriptableSystemsManager>();
+#if UNITY_EDITOR
+			if (AssetDatabase.IsValidFolder("Assets/Resources") == false)
+			{
+				AssetDatabase.CreateFolder("Assets", "Resources");
+			}
+			if (AssetDatabase.IsValidFolder("Assets/Resources/Systems") == false)
+			{
+				AssetDatabase.CreateFolder("Assets/Resources", "Systems");
+			}
+
+			AssetDatabase.CreateAsset(newObject, "Assets/Resources/Systems/ScriptableSystemsManager.asset");
+			AssetDatabase.SaveAssets();
+#endif
+			return newObject as ScriptableSystemsManager;
+		}
+		#endregion
+
 
 #if UNITY_EDITOR
 		[InitializeOnLoadMethod]
@@ -43,8 +65,9 @@ namespace ScriptableSystems
 			}
 			if (_instance == null)
 			{
-				Debug.LogWarning("ScriptableObjectSingleton: Failed to find a ScriptableObject asset of type ScriptableSystemsManager, creating a temporary runtime-only instance.");
-				_instance = CreateInstance<ScriptableSystemsManager>();
+				_instance = CreateNewInstance();
+
+				Debug.Log("ScriptableSystemsManager: Created a ScriptableSystemsManager instance in Assets/Resources/Systems.");
 #if UNITY_EDITOR
 				_instance?.Awake();
 #endif
