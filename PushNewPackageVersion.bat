@@ -1,1 +1,1 @@
-git subtree push --prefix Assets/AthanorUtils origin upm
+git subtree push --prefix ./Assets/AthanorUtils origin upm

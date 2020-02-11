@@ -2,7 +2,7 @@
   "name": "com.athanor.athanor_utils",
   "version": "1.2.1",
   "displayName": "Athanor Utils",
-  "description": "This package contains all code shared among all my projects.",
+  "description": "This package contains all code shared among all my projects. \n Download latest version of the package from: git@github.com:grekomp/ArthanorUtils.git#upm",
   "unity": "2019.3",
   "unityRelease": "0f6",
   "keywords": [
