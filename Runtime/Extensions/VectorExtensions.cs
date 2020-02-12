@@ -27,7 +27,7 @@ namespace Athanor
 		public static Color ToColor(this Vector3 vector, float minValue, float maxValue)
 		{
 			float multiplier = 1f / (maxValue - minValue);
-			return new Color((vector.x + minValue) * multiplier, (vector.y + minValue) * multiplier, (vector.z + minValue) * multiplier);
+			return new Color((vector.x - minValue) * multiplier, (vector.y - minValue) * multiplier, (vector.z - minValue) * multiplier);
 		}
 		#endregion
 	}
