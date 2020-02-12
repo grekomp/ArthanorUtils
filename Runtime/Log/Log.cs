@@ -21,13 +21,9 @@ namespace Athanor
 	{
 		public readonly static string defaultDebugTag = "QuickDebug";
 
-		public static List<string> messages = new List<string>();
-		public static event Action OnMessagesChanged;
-
 		public static void PrintLog(LogLevel logLevel, object tag, object message, UnityEngine.Object context = null)
 		{
 			string logString = $"[{logLevel.ToString().Substring(0, 3)}] {tag}: {message}";
-			messages.Add(logString);
 
 			if (context == null)
 			{
@@ -65,8 +61,6 @@ namespace Athanor
 						break;
 				}
 			}
-
-			OnMessagesChanged?.SafeInvoke();
 		}
 
 		public static void D(object message)
