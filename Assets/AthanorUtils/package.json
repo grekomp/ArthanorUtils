@@ -1,20 +1,20 @@
 {
-  "name": "com.athanor.athanor_utils",
-  "version": "1.4.1",
-  "displayName": "Athanor Utils",
-  "description": "This package contains all code shared among all my projects.",
-  "unity": "2019.3",
-  "unityRelease": "0f6",
-  "repository": "git@github.com:grekomp/ArthanorUtils.git#upm",
-  "keywords": [
-    "athanor",
-    "core",
-    "utils"
-  ],
-  "author": {
-    "name": "Grzegorz Palian",
-    "email": "grzegorz.palian@gmail.com"
-  },
-  "type": "library",
-  "hideInEditor": false
+	"name": "com.athanor.athanor_utils",
+	"version": "1.4.2",
+	"displayName": "Athanor Utils",
+	"description": "This package contains all code shared among all my projects.",
+	"unity": "2019.3",
+	"unityRelease": "0f6",
+	"repository": "git@github.com:grekomp/ArthanorUtils.git#upm",
+	"keywords": [
+		"athanor",
+		"core",
+		"utils"
+	],
+	"author": {
+		"name": "Grzegorz Palian",
+		"email": "grzegorz.palian@gmail.com"
+	},
+	"type": "library",
+	"hideInEditor": false
 }
