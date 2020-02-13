@@ -1,6 +1,6 @@
 {
   "name": "com.athanor.athanor_utils",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "displayName": "Athanor Utils",
   "description": "This package contains all code shared among all my projects.",
   "unity": "2019.3",

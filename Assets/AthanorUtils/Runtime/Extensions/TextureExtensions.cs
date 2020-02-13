@@ -43,7 +43,9 @@ namespace Athanor
 		public static string SaveToPNG(this Texture2D source, string path)
 		{
 			byte[] bytes = source.EncodeToPNG();
-			System.IO.File.WriteAllBytes(path, bytes);
+
+			if (Directory.Exists(Path.GetDirectoryName(path)) == false) Directory.CreateDirectory(Path.GetDirectoryName(path));
+			File.WriteAllBytes(path, bytes);
 
 			return path;
 		}
@@ -51,7 +53,9 @@ namespace Athanor
 		public static string SaveToEXR(this Texture2D source, string path)
 		{
 			byte[] bytes = source.EncodeToEXR();
-			System.IO.File.WriteAllBytes(path, bytes);
+
+			if (Directory.Exists(Path.GetDirectoryName(path)) == false) Directory.CreateDirectory(Path.GetDirectoryName(path));
+			File.WriteAllBytes(path, bytes);
 
 			return path;
 		}
