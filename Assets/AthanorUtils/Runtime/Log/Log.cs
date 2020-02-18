@@ -7,22 +7,26 @@ using UnityEngine;
 
 namespace Athanor
 {
+	[Flags]
 	public enum LogLevel
 	{
-		Debug,      // Temporary development-only logs
-		Error,      // Logs about bad and impossible to ignore situations
-		Warning,    // Logs about potentially unwanted situations, that were handled by the system
-		Info,       // Informational logs about general / important events and states of the system
-		Verbose,    // Detailed informational logs that might be helpful to inspect the inner workings of a system
-		WTF         // What a Terrible Failure = Critical situations that should never happen
+		Debug = (1 << 0),      // Temporary development-only logs
+		Error = (1 << 1),      // Logs about bad and impossible to ignore situations
+		Warning = (1 << 2),    // Logs about potentially unwanted situations, that were handled by the system
+		Info = (1 << 3),       // Informational logs about general / important events and states of the system
+		Verbose = (1 << 4),    // Detailed informational logs that might be helpful to inspect the inner workings of a system
+		WTF = (1 << 5)         // What a Terrible Failure = Critical situations that should never happen
 	}
 
 	public static class Log
 	{
-		public readonly static string defaultDebugTag = "QuickDebug";
+		public readonly static string quickDebugLogTag = "QuickDebug";
 
 		public static void PrintLog(LogLevel logLevel, object tag, object message, UnityEngine.Object context = null)
 		{
+			if (LogConfig.Instance.ShouldLogMessage(tag.ToString(), logLevel) == false) return;
+
+
 			string logString = $"[{logLevel.ToString().Substring(0, 3)}] {tag}: {message}";
 
 			if (context == null)
@@ -65,7 +69,7 @@ namespace Athanor
 
 		public static void D(object message)
 		{
-			PrintLog(LogLevel.Debug, defaultDebugTag, message);
+			PrintLog(LogLevel.Debug, quickDebugLogTag, message);
 		}
 		public static void D(object tag, object message, UnityEngine.Object context = null)
 		{
