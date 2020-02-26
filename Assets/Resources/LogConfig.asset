@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LogConfig
   m_EditorClassIdentifier: 
   overrideLogAll: 0
-  lines:
+  Filters:
   - LogTag: Tester (LogTester)
-    level: -1
+    LogLevelsEditor: -1
+    LogLevelsBuild: 2147483647
